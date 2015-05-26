@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context>
+
+	<Resource name="jdbc/sqlserver" auth="Container" type="javax.sql.DataSource"
+		username="sa" password="password" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+		url="jdbc:sqlserver://localhost:1433;DatabaseName=northwind;"
+		maxActive="8" />
+
+</Context>
