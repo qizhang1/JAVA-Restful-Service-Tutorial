@@ -16,7 +16,7 @@ public class V1_Order {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response returnAllPcParts() throws Exception {
+	public Response returnOrderDetails() throws Exception {
 		
 		PreparedStatement query = null;
 		Connection conn = null;
