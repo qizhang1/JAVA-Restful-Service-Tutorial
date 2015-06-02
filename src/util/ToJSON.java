@@ -2,6 +2,7 @@ package util;
 
 import java.sql.*;
 import org.codehaus.jettison.json.*;
+import org.owasp.esapi.ESAPI;
 
 /**
  * This utility will convert a database data into JSON format.
@@ -68,7 +69,12 @@ public class ToJSON {
                     	 obj.put(column_name, rs.getNString(column_name));
                      }
                      else if(rsmd.getColumnType(i)==java.sql.Types.VARCHAR){                   	 
-                    	 obj.put(column_name, rs.getString(column_name));
+                    	 temp = rs.getString(column_name); //saving column data to temp variable
+                    	 temp = ESAPI.encoder().canonicalize(temp); //decoding data to base state
+                    	 temp = ESAPI.encoder().encodeForHTML(temp); //encoding to be browser safe
+                    	 obj.put(column_name, temp); //putting data into JSON object
+                    	 
+                    	 //obj.put(column_name, rs.getString(column_name));
                      }
                      else if(rsmd.getColumnType(i)==java.sql.Types.TINYINT){
                     	 obj.put(column_name, rs.getInt(column_name));
