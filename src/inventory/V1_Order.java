@@ -16,12 +16,12 @@ public class V1_Order {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String returnAllPcParts() throws Exception {
+	public Response returnAllPcParts() throws Exception {
 		
 		PreparedStatement query = null;
 		Connection conn = null;
 		String result = null;
-
+		Response rb = null;
 		try {
 			conn = SQLServer.SQLServerConn().getConnection();
 			query = conn.prepareStatement("SELECT * FROM [ORDER DETAILS]");
@@ -34,7 +34,7 @@ public class V1_Order {
 			query.close(); // close db connection
 			
 			result = json.toString();
-			
+			rb = Response.ok(result).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -43,6 +43,6 @@ public class V1_Order {
 			}
 		}
 		
-		return result;
+		return rb;
 	}
 }
