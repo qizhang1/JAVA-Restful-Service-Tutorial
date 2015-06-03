@@ -1,5 +1,7 @@
 package database;
 
+import java.sql.Connection;
+
 import javax.naming.*;
 import javax.sql.*;
 /*
@@ -22,5 +24,21 @@ public class SQLServer {
 			e.printStackTrace();
 		}
 		return SQLServer;
+	}
+	
+	/**
+	 * only java class in the database package can use this method.
+	 * @return Connection to SQL Server database.
+	 */
+	protected static Connection SQLServerConnection() {
+		Connection conn = null;
+		try {
+			conn = SQLServerConn().getConnection();
+			return conn;
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return conn;
 	}
 }
