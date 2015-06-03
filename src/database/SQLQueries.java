@@ -15,7 +15,7 @@ import util.ToJSON;
  */
 
 public class SQLQueries extends SQLServer {
-	public JSONArray queryReturnBrandParts(int productID) throws Exception {
+	public JSONArray queryOrderDetailsByProduct(int productID) throws Exception {
 		
 		Connection conn = null;
 		PreparedStatement query = null;
