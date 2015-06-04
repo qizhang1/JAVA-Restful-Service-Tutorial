@@ -37,7 +37,7 @@ public class V2_Order {
 		try {
 			if (productID == 0) {
 				return Response.status(400)
-						.entity("Error: please specify brand for this search")
+						.entity("Error: please specify productID for this search")
 						.build();
 			}
 
