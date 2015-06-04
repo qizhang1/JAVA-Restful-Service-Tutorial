@@ -36,7 +36,7 @@ public class V2_Order {
 
 		try {
 			if (productID == 0) {
-				return Response.status(400)
+				return Response.status(400) // http status code 400 bad request
 						.entity("Error: please specify productID for this search")
 						.build();
 			}
@@ -44,7 +44,7 @@ public class V2_Order {
 			SQLQueries db = new SQLQueries();
 			json = db.queryOrderDetailsByProduct(productID);
 			returnString = json.toString();
-		} catch (Exception e) {
+		} catch (Exception e) { // http status code 500 Internal Server Error
 			e.printStackTrace();
 			return Response.status(500)
 					.entity("Server was not able to process your request")
