@@ -67,7 +67,7 @@ public class V2_Order {
 	@Path("/{product}")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response returnBrand(@PathParam("product") int productID)
+	public Response returnOrder(@PathParam("product") int productID)
 			throws Exception {
 
 		String returnString = null;
