@@ -54,6 +54,15 @@ public class V2_Order {
 
 		return Response.ok(returnString).build();
 	}
+	
+	/*
+	 * This method can be used if the method returnOrderByProductID is not used.
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response returnError() throws Exception {		
+		return Response.status(400).entity("Error: please specify productID for this search").build();
+	}
+	*/
 
 	/**
 	 * Get all order details for a product.
